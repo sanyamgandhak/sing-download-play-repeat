@@ -1,25 +1,44 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Main from './components/Main';
+import { BrowserRouter ,Routes, Route, Link ,Router} from "react-router-dom";
+import Lyrics from './components/Lyrics';
+import { UrlProvider } from './context/UrlContext';
+import Navigate1 from './components/Navigate1';
+
+import Voice from './components/Voice';
+
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
+
+  //context api form !! state move all component 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+
+    <UrlProvider>
+<Navigate1/>
+
+    <BrowserRouter>
+    {/* <Navigate1/>   */}
+<Routes>
+
+      <Route path="/" element={<Main />} />
+      <Route path="/voice" element={ <Voice/> } />
+      {/* <Route path="lyrics" element={<Lyrics />} /> */}
+    </Routes>
+{/* <Lyrics/> */}
+</BrowserRouter>
+
+
+    </UrlProvider>
+  
+ 
+    </>
+ 
+
+     );
 }
 
 export default App;
