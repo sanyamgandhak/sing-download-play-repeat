@@ -1,30 +1,40 @@
-import React from 'react'
+import React ,{useState} from 'react'
  
 import { useRecorder } from 'use-recorder'
-import '../static/mic.scss'
+
  
 const Voice = () => {
   const { audio,start, stop, player } = useRecorder()
+  const[clicked,setClicked]=useState(null)
+  const [play,setPlay]=useState(false)
+  const[sound,setSound]=useState(false)
   const change=()=>{
     console.log(audio)
+    setSound(true)
+  }
+
+  const  handleClick=()=>{
+    setClicked((prevState)=>!prevState)
+  }
+  const handlePlay=()=>{
+    setPlay((prevState)=>(!prevState))
   }
   return (
-    <div>
-      <button onClick={start}>start</button>
-      <button onClick={stop}>stop</button>
-      <button onClick={() => player.play()}>play</button>
-      <button onClick={() => player.pause()}>pause</button>
-      <button onClick={change}>Download</button>
-      
-      <div class="container">
+    <>
+     <div class="flex justify-center">
+      <button onClick={clicked?stop:start}><input onClick={handleClick} type="radio" name="radio-6" class={clicked?"mr-2 radio radio-lg checked:bg-red-500":"mr-2 radio radio-lg :bg-red-500"}  checked />
+</button>
+{/* <button onClick={handlePlay}></button> */}
 
-	<button id="speech" class="btn m-left type2">
-  <div class="pulse-ring"></div>
-	<i class="fa fa-microphone" aria-hidden="true"></i>
-			</button>
-</div>
+      <button class="btn btn-outline btn-primary" onClick={() =>{player.play();handlePlay();} }><p >{play?'Playing...':'Play'}</p></button>
+ 
 
       </div>
+      <div class="mt-5 flex justify-center"><a href={play?audio.audioUrl:''} download> <img class={play?" animate-bounce":'" invisible animate-bounce"'} src={require('../assests/arrow.png')}/>
+        </a></div>
+      </>
+   
+        
   )
 }
  

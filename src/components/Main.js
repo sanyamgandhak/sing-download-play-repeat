@@ -80,6 +80,7 @@ function Main() {
         setDownload('')
         const res = await fetch(url, options);
         const data = await res.json()
+        console.log(data)
         console.log(data.media[0])
   
         setDownload(data.media[0])

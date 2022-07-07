@@ -28,7 +28,7 @@ function App() {
       <Route path="/voice" element={ <Voice/> } />
       {/* <Route path="lyrics" element={<Lyrics />} /> */}
     </Routes>
-{/* <Lyrics/> */}
+<Lyrics/>
 </BrowserRouter>
 
 

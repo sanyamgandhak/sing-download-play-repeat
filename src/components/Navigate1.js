@@ -16,7 +16,7 @@ function Navigate1(){
 
 <input  type={clicked?'checkbox':''} onClick={()=>handleClick()} class="toggle toggle-primary mt-1" checked />
 
-  <h1 class="text-lg">Video/mp3 Download</h1> </div>
+  <h1 class="text-lg">Download from Insta</h1> </div>
      
   <div class=" mt-2 mr-2 order-last">
   <Radio/>
