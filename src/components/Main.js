@@ -20,7 +20,7 @@ function Main() {
 
   const [down, setDown] = useState(true)
   const [input1, setInput] = useState('')
-  const[link,setLink]=useState('')
+
 
   const [message,setMessage]=useState('')
 
@@ -65,7 +65,7 @@ function Main() {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '7f8b5a9de6mshea6a6d590a66e96p14e3d7jsn0e18c69be503',
+        'X-RapidAPI-Key':process.env.REACT_APP_RAPID_API ,
         'X-RapidAPI-Host': 'instagram-downloader-download-instagram-videos-stories.p.rapidapi.com'
       }
     };
